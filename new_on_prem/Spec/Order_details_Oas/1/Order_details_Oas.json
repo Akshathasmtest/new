@@ -1,0 +1,195 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Order_details_Oas",
+    "description" : "Order details API",
+    "termsOfService" : "",
+    "version" : "1.0.0"
+  },
+  "externalDocs" : {
+    "description" : "",
+    "url" : ""
+  },
+  "servers" : [ {
+    "url" : "http://apisandbox.apiwiz.local:7080/order/{order_id}",
+    "description" : "ds",
+    "variables" : { }
+  } ],
+  "paths" : {
+    "/get" : {
+      "get" : {
+        "tags" : [ ],
+        "summary" : "",
+        "description" : "",
+        "operationId" : "fg",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "h",
+            "headers" : { },
+            "content" : { }
+          }
+        },
+        "callbacks" : { },
+        "deprecated" : false,
+        "security" : [ ],
+        "servers" : [ ]
+      },
+      "servers" : [ ],
+      "parameters" : [ ],
+      "extensions" : {
+        "x-description" : ""
+      }
+    },
+    "/order/{order_id}" : {
+      "get" : {
+        "tags" : [ ],
+        "summary" : "Get order details by order ID",
+        "description" : "Fetches the order details for a given order ID",
+        "operationId" : "getOrderDetails",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/order_id_path"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Order details fetched successfully",
+            "headers" : { },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Order_details_dd"
+                }
+              }
+            }
+          }
+        },
+        "callbacks" : { },
+        "deprecated" : false,
+        "security" : [ ],
+        "servers" : [ ]
+      },
+      "servers" : [ {
+        "url" : "http://apisandbox.apiwiz.local:7080/order/{order_id}",
+        "description" : "ds",
+        "variables" : { }
+      } ],
+      "parameters" : [ {
+        "$ref" : "#/components/parameters/order_id_path"
+      } ],
+      "extensions" : {
+        "x-description" : ""
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Order_details_dd" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "example" : "Order placed successfully"
+          },
+          "order" : {
+            "type" : "object",
+            "properties" : {
+              "order_id" : {
+                "type" : "string",
+                "example" : "1"
+              },
+              "user_id" : {
+                "type" : "string",
+                "example" : "12345"
+              },
+              "items" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "item_id" : {
+                      "type" : "string",
+                      "example" : "111"
+                    },
+                    "name" : {
+                      "type" : "string",
+                      "example" : "Laptop"
+                    },
+                    "quantity" : {
+                      "type" : "number",
+                      "example" : 1
+                    },
+                    "price" : {
+                      "type" : "number",
+                      "example" : 1200
+                    }
+                  }
+                }
+              },
+              "total_price" : {
+                "type" : "number",
+                "example" : 1225
+              },
+              "shipping_address" : {
+                "type" : "object",
+                "properties" : {
+                  "street" : {
+                    "type" : "string",
+                    "example" : "123 Main St"
+                  },
+                  "city" : {
+                    "type" : "string",
+                    "example" : "Springfield"
+                  },
+                  "state" : {
+                    "type" : "string",
+                    "example" : "IL"
+                  },
+                  "zipcode" : {
+                    "type" : "string",
+                    "example" : "62701"
+                  }
+                }
+              },
+              "payment_method" : {
+                "type" : "string",
+                "example" : "Credit Card"
+              },
+              "status" : {
+                "type" : "string",
+                "example" : "Pending"
+              },
+              "order_date" : {
+                "type" : "string",
+                "example" : "2025-04-02"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses" : { },
+    "parameters" : {
+      "order_id_path" : {
+        "name" : "order_id",
+        "in" : "path",
+        "description" : "ID of the order to fetch",
+        "required" : true,
+        "style" : "SIMPLE",
+        "explode" : false,
+        "schema" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "extensions" : {
+    "models" : [ {
+      "dataDictionaryId" : "67f8cf6ba8a5cd7d8ee26c4e",
+      "dataDictionaryName" : "Order_details",
+      "dataDictionaryRevision" : 1,
+      "modelId" : "ee8c2fd87a9d4e0880abd733e3622daf",
+      "modelName" : "Order_details_dd",
+      "modelRevision" : 1
+    } ]
+  }
+}
